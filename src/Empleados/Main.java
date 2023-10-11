@@ -1,49 +1,53 @@
 package Empleados;
-// los valores de los sueldos los estamos tomando como dolares :)
-
+import java.util.ArrayList;
 public class Main {
 
    
     public static void main(String[] args) {
-  
-Empleado[] empleados= new Empleado[10];
-empleados[0]=new EmpleadoAsalariado("Richar", 2700, 250);
-empleados[1]=new EmpleadoAsalariado("Jordan", 2700, 250);
-empleados[2]=new EmpleadoAsalariado("Nicol", 2700, 250);
-empleados[3]=new EmpleadoAsalariado("Daniel ", 2700, 250);
-empleados[4]=new EmpleadoAsalariado("felpe",2700 , 250);
-empleados[5]=new EmpleadoAsalariado("Santiago", 2700, 250);
-empleados[6]=new EmpleadoAsalariado("Kevin ", 2700, 250);
-empleados[7]=new EmpleadoAsalariado("Leandro ", 2700, 250);
-empleados[8]=new EmpleadoAsalariado("Luis", 2700, 250);
-empleados[9]=new EmpleadoAsalariado("Alexandra", 2700, 250);
-
-for(Empleado empleado: empleados){
-    if(empleado instanceof EmpleadoAsalariado){
-       System.out.println(empleado.getNombre()+":"+empleado.getSalarioBase());
-    }
-    }        
-     
-
-
-empleados[0].setNombre("Nombre modificado - Jordan");
-empleados[0].setSalarioBase(2400);
-System.out.println(empleados[0].getNombre());
-
-
-for(Empleado empleado: empleados){
-if(empleado instanceof EmpleadoPorHoras ){
-System.out.println( empleado.getNombre()+"-"+empleado.calcularsalario());
-}
-}
-
-for(Empleado empleado: empleados){
-if(empleado.getNombre().equals("Empleado3"))
-{System.out.println("EL empleado encontrado es: "+empleado.getNombre());
-break;
-}
-}
         
+        EmpleadoAsalariado empleado1 = new EmpleadoAsalariado("Ricardo", 1400, 150);
+        EmpleadoAsalariado empleado2 = new EmpleadoAsalariado("Stiven", 4500, 420);
+        EmpleadoAsalariado empleado3 = new EmpleadoAsalariado("Jairo", 4700, 350);
+        EmpleadoAsalariado empleado4 = new EmpleadoAsalariado("Edinson", 3700, 400);
+        EmpleadoAsalariado empleado5 = new EmpleadoAsalariado("Bolivar", 7000, 870);
+        EmpleadoPorHoras empleado6 = new EmpleadoPorHoras("Santiago", 13, 27);
+        EmpleadoPorHoras empleado7 = new EmpleadoPorHoras("Andres", 17, 24);
+        EmpleadoPorHoras empleado8 = new EmpleadoPorHoras("nicol", 19, 29);
+        EmpleadoPorHoras empleado9 = new EmpleadoPorHoras("Leydi", 21, 28);
+        EmpleadoPorHoras empleado10 = new EmpleadoPorHoras("Yesica", 10, 27);
+
+    ArrayList<EmpleadoAsalariado> listaEmpleadosSalario = new ArrayList<>();
+    listaEmpleadosSalario.add(empleado1);
+    listaEmpleadosSalario.add(empleado2);
+    listaEmpleadosSalario.add(empleado3);
+    listaEmpleadosSalario.add(empleado4);
+    listaEmpleadosSalario.add(empleado5);
+  
+    
+    System.out.println("/-/-/-/-/Empleados Asalariados/-/-/-/-/");
+    for (Empleado empleadoSalariado : listaEmpleadosSalario) {
+      System.out.println(empleadoSalariado.getNombre() + " tiene un salario de: " + empleadoSalariado.calcularSalario() + " pesosColombianos.");
     }
+    
+     ArrayList<EmpleadoPorHoras> listaEmpleadosHoras = new  ArrayList<>();
+    listaEmpleadosHoras.add(empleado6);
+    listaEmpleadosHoras.add(empleado7);
+    listaEmpleadosHoras.add(empleado8);
+    listaEmpleadosHoras.add(empleado9);
+    listaEmpleadosHoras.add(empleado10);
+    
+    System.out.println("\n\n/-/-/-/-/Empleados por horas/-/-/-/-/");
+    for (Empleado empleadoHoras : listaEmpleadosHoras) {
+      System.out.println(empleadoHoras.getNombre() + " tiene un salario de: " + empleadoHoras.calcularSalario() + " pesosColombianos.");
+    }
+    empleado8.setHorasTrabajadas(7);
+  
+        System.out.println("\n\n/-/-/-/Verificacion empleados por hora/-/-/-/");
+for (Empleado empleadoHoras : listaEmpleadosHoras) {
+      System.out.println(empleadoHoras.getNombre() + " tiene un salario de: " + empleadoHoras.calcularSalario() + " pesosColombianos.");
+    }
+        System.out.println("\n\n/-/-/-/empleado especifico/-/-/-/");
+System.out.println(empleado7.getNombre() + " tiene un salario de: " + empleado7.calcularSalario() + " pesosColombianos.");
+  }  
     
 }
